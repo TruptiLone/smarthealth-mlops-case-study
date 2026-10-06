@@ -1,0 +1,13 @@
+# Local operating-system and editor files
+.DS_Store
+Thumbs.db
+~$*
+*.tmp
+__pycache__/
+.venv/
+.env
+.env.*
+!.env.example
+# Local working collections are not publication material
+review-only/
+Harmbench/
