@@ -38,7 +38,7 @@ Extracted unchanged from the team's DevOps/MLOps workflow document. It describes
 
 ## Team
 
-Aryan Puranik · Maheshwari Bhandare · Senit Ghile · Trupti Lone
+Trupti Lone · Aryan Puranik · Maheshwari Bhandare · Senit Ghile 
 
 Course context: ISBA 2408 OSS project. SmartHealth, its staff personas, customer scenarios, service volumes, and financial projections are part of the academic simulation. The project is about applying an OSS library; it does not claim contributions to the upstream scikit-learn project.
 
