@@ -44,4 +44,4 @@ The supplied work supports a case study of OSS adoption, MLOps architecture, rel
 
 The principal lesson documented by the retrospective is that moving ML research into an existing delivery process introduces coordination and integration dependencies that must be reflected in scope, estimates, ownership, and release criteria.
 
-Sources: [proposal, platform overview, workflow, sprint milestones, retrospective, and risk register](source-index.md). The local review collection preserves the annotated draft report separately.
+Sources: [proposal, platform overview, workflow, sprint milestones, retrospective, and risk register](../README.md#original-documents). The local review collection preserves the annotated draft report separately.
