@@ -19,6 +19,49 @@ SmartHealth is a roleplay consultancy of approximately 80–100 employees suppor
 - Translating personas into user stories, sprint milestones, test criteria, and risk controls.
 - Evaluating an automation business case while documenting assumptions and limitations.
 
+## Product management highlights
+
+The team's OSS Project draft report (slides) frames the work the way a product team would: problem → measurable goals → prioritized backlog → milestone roadmap → business case → risk and change management. The highlights below are drawn from that deck.
+
+### Problem, current state, and target state
+
+Support tickets arrive omni-channel into a single Salesforce queue with inconsistent categories, urgency levels, and free-text descriptions. Tier-1 staff manually review, reclassify, and route every ticket across internal, vendor, remote, and onsite teams — slowing initial response, increasing routing errors and cognitive load, and (because unstructured tickets may contain PHI) raising compliance risk. The target state: incoming tickets are automatically analyzed and categorized with ML-assisted sorting, high-impact and clinically sensitive issues are escalated faster, and IT teams focus on resolution quality rather than manual triage — with every ML suggestion remaining advisory under human control.
+
+### SMART goals
+
+| Goal | Target (within 8–12 weeks of deployment) |
+|---|---|
+| Reduce manual triage time | ≥ 50% reduction in average ticket triage time via automated classification at intake |
+| Improve routing accuracy | 30% reduction in ticket misrouting and reassignment |
+| Increase critical issue response | 25% faster response for high/critical clinical tickets |
+
+### Product roadmap
+
+Four milestones, deliberately sequenced so compliance comes first and ML authority is earned incrementally — read-only suggestions before human-approved actions, and filtering only after trust is established:
+
+| Milestone | Expected outcome | Success measures |
+|---|---|---|
+| **M1 — Compliance-Safe Ticket Ingestion Foundation** | All tickets cleaned and sanitized before storage or ML use; PHI automatically identified, masked, and logged; compliance and audit controls in place | 100% of tickets sanitized before storage; PHI detection/masking logs available; audit logs include timestamps and actions |
+| **M2 — ML-Assisted Ticket Triage (Read-Only)** | ML suggests category, priority, and resolution path with confidence scores; ML does not auto-route | ≥ 30% reduction in manual triage time; suggestions shown for most tickets; no tickets auto-routed by ML |
+| **M3 — Human-in-the-Loop ML Control** | Users accept or reject ML suggestions; accepted suggestions update the ticket; all triage decisions recorded | ≥ 80% of routine tickets accepted without changes; accept/reject actions logged with user ID; no workflow blocked by ML |
+| **M4 — Smart Filtering & Onsite Escalation** | Tickets marked onsite vs. remote; low-priority issues filtered from onsite queues; only high-confidence issues sent onsite | Fewer unnecessary onsite escalations; faster response to real physical issues; escalation decisions fully logged |
+
+### Backlog and delivery
+
+- **Prioritization:** user stories across three epics (compliance-safe ingestion, ML-assisted service desk triage, smart filtering & onsite escalation) scored with **KANO**, **MoSCoW**, and **WSJF** (value, time criticality, risk vs. job size) — audit logging and human accept/reject controls consistently ranked as Must-haves ahead of ML suggestion features.
+- **SDLC:** a blended **Scrum + XP** model — Scrum governs planning, prioritization, and sprint reviews; XP practices (pair programming on ML classification logic and Salesforce integrations, small testable increments, continuous integration) govern execution.
+- **Sprint plan:** three program-level sprints — Discovery & Design (problem clarity, architecture, OSS selection, backlog), Implementation (data pipeline, scikit-learn classification, routing logic, PHI detection/redaction, validation), and Release Planning (deployment, rollout, monitoring, adoption strategy) — tracked with a cumulative story-point burnup.
+
+### Business case (scenario estimates)
+
+Modeled on assumed volumes (~40,000 tickets/year): **≈ $94,300 estimated annual savings** across triage labor, SLA breach reduction, misrouting rework, onsite dispatch reduction, and critical-incident downtime, against a **≈ $35,000 one-time investment** — a **~4.5-month payback** and **~169% first-year ROI**. See [Business case and evidence limits](docs/business-case.md) for assumptions and conflicting drafts; these are targets, not measured results.
+
+### Risk and change management
+
+- **Risk analysis:** likelihood × impact scoring with mitigations mapped to specific user stories — e.g., operational scalability (20) mitigated by ML-assisted categorization with human accept/reject; clinical misclassification (10) by conservative confidence thresholds and manual override; PHI exposure (5) by automated detection, mandatory redaction, and sanitized-only ML pipelines.
+- **OSS software-disaster plan:** version pinning of scikit-learn and upstream dependencies, CVE monitoring, staged deployments with regression tests, model/version traceability per prediction, manual fallback mode, and rollback to last-known-stable — with all ML outputs remaining advisory.
+- **Change management:** a Lewin Unfreeze–Change–Refreeze adoption plan — leadership and compliance buy-in, phased rollout (recommend-only before acting), training with a "critical vs. routine" cheat sheet, then standardizing the new triage process and reinforcing with tracked wins at sprint reviews.
+
 ## Start here
 
 | Document | What it covers |
